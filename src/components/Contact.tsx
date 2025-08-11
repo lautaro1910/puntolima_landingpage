@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import emailjs from "emailjs-com";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -47,38 +47,47 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Error",
         description: "Por favor completa todos los campos requeridos.",
-        variant: "destructive"
+        variant: "destructive",
       });
       return;
     }
+
+    try {
     await emailjs.send(
       process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
       process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
       {
         name: formData.name,
         email: formData.email,
-        subject: formData.subject,
-        message: formData.message
+        subject: formData.subject ?? '',
+        message: formData.message,
       },
       process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
     );
+
     toast({
       title: "¡Mensaje enviado!",
       description: "Nos pondremos en contacto contigo pronto.",
     });
 
-    // Reset form
     setFormData({
       name: '',
       email: '',
       subject: '',
-      message: ''
+      message: '',
     });
+    } catch (error) {
+      console.error("Error enviando email:", error);
+      toast({
+        title: "Error al enviar el mensaje",
+        description: "Intentá nuevamente más tarde.",
+        variant: "destructive",
+      });
+    }
   };
 
   const contactInfo = [
