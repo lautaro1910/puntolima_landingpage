@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Punto Lima Design System */
+
+@layer base {
+  :root {
+    /* Dark theme primary colors */
+    --background: 0 0% 3%;
+    --foreground: 0 0% 98%;
+
+    /* Glass/Card effects */
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
+    --glass: 0 0% 10%;
+    --glass-border: 0 0% 20%;
+
+    /* Lime green accent system */
+    --lime: 84 81% 44%;
+    --lime-dark: 84 100% 35%;
+    --lime-light: 84 81% 60%;
+    --lime-glow: 84 81% 44%;
+
+    /* Interactive states */
+    --primary: 84 81% 44%;
+    --primary-foreground: 0 0% 3%;
+    --primary-hover: 84 100% 35%;
+
+    /* Secondary colors */
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-hover: 0 0% 20%;
+
+    /* Muted colors */
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 65%;
+
+    /* Accent colors */
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 98%;
+
+    /* Status colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Borders and inputs */
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 84 81% 44%;
+
+    /* Design system effects */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --blur-backdrop: blur(20px);
+    
+    /* Gradients */
+    --gradient-lime: linear-gradient(135deg, hsl(84 81% 44%) 0%, hsl(84 100% 35%) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(0 0% 3%) 0%, hsl(0 0% 8%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(84 81% 44% / 0.3);
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --shadow-sharp: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    background: radial-gradient(ellipse at top, hsl(0 0% 8%) 0%, hsl(0 0% 3%) 100%);
+    min-height: 100vh;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Glass morphism utility */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: var(--blur-backdrop);
+    border: 1px solid var(--glass-border);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Lime glow effect */
+  .lime-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Hero background with animated gradient */
+  .hero-bg {
+    background: 
+      radial-gradient(ellipse at 20% 50%, hsla(84, 81%, 44%, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 0%, hsla(84, 81%, 44%, 0.08) 0%, transparent 50%),
+      linear-gradient(135deg, hsl(0 0% 3%) 0%, hsl(0 0% 8%) 100%);
+  }
+
+  /* Animated underline effect */
+  .animated-underline {
+    position: relative;
+  }
+
+  .animated-underline::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: var(--gradient-lime);
+    transition: width 0.3s ease;
+  }
+
+  .animated-underline:hover::after {
+    width: 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
