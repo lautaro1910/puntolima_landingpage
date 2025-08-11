@@ -27,18 +27,18 @@ const Clients = () => {
   const testimonials = [
     {
       quote: "Trabajar con ellos fue un antes y un después. No solo gestionaron nuestras redes, sino que produjeron contenido de altísima calidad: fotos con cámara profesional, tomas aéreas con dron y videos 360 que hicieron que nuestra marca se vea espectacular.",
-      author: "María González",
-      company: "TechStart Solutions"
+      author: "Agustin Vega",
+      company: "Reker"
     },
     {
       quote: "La creación de nuestra página web superó nuestras expectativas. Diseño moderno, fácil de usar y optimizado para que nuestros clientes encuentren todo rápido. Además, el contenido visual que produjeron es digno de una campaña internacional.",
-      author: "Carlos Mendoza",
-      company: "E-commerce Plus"
+      author: "Facundo Romero",
+      company: "Innobra"
     },
     {
       quote: "Su equipo no solo entiende de marketing, entiende cómo contar una historia. Desde las fotos y videos producidos con equipos profesionales hasta la web que crearon, cada detalle transmite nuestra identidad de marca.",
-      author: "Ana Ruiz",
-      company: "Retail Innovation"
+      author: "Jorge Rodriguez",
+      company: "Mevak"
     }
   ];
 
@@ -55,7 +55,7 @@ const Clients = () => {
           <p className={`text-xl text-muted-foreground max-w-2xl mx-auto transition-all duration-1000 delay-200 ${
             isVisible ? 'animate-fade-in' : 'opacity-0 translate-y-10'
           }`}>
-            Trabajamos con empresas de todos los tamaños para impulsar su crecimiento digital
+            Trabajamos con empresas de todos los tamaños para impulsar su crecimiento digital. Algunos de los clientes que confiaron en nosotros
           </p>
         </div>
 
