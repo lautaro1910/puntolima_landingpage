@@ -11,7 +11,6 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
     message: ''
   });
   const { toast } = useToast();
@@ -63,7 +62,6 @@ const Contact = () => {
       {
         name: formData.name,
         email: formData.email,
-        subject: formData.subject ?? '',
         message: formData.message,
       },
       process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
@@ -77,7 +75,6 @@ const Contact = () => {
     setFormData({
       name: '',
       email: '',
-      subject: '',
       message: '',
     });
     } catch (error) {
@@ -182,7 +179,7 @@ const Contact = () => {
                     id="subject"
                     name="subject"
                     type="text"
-                    value={formData.subject}
+                    value='msj por defecto'
                     onChange={handleInputChange}
                     className="bg-input border-glass-border focus:border-lime focus:ring-lime"
                     placeholder="¿En qué podemos ayudarte?"
